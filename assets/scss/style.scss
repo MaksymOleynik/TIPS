@@ -1,0 +1,124 @@
+@use "../../libs/normalize.css/normalize";
+
+@use "presets/skin";
+@use "presets/variables";
+
+@use "mixins/mixins";
+@use "mixins/mixins-media";
+@use "mixins/extends";
+
+@use "common/typography";
+@use "common/classes";
+
+@use "components/header/header";
+@use "components/header/header-overlay";
+@use "components/header/header-menu";
+@use "components/header/header-logo";
+@use "components/header/header-navbar";
+@use "components/header/header-content";
+@use "components/sections/skills/skills";
+@use "components/sections/skills/skill-item";
+@use "components/sections/section-about";
+@use "components/sections/section-form";
+@use "components/sections/section-posts";
+
+
+
+
+
+
+.header-content__container {
+  display: grid;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+  .header-content__title {
+    margin: 0 0 53px;
+  }
+  .skills__container {
+    gap: 10px;
+    grid-template-areas: "a1 a1 a2 a3" "a4 a5 a5 a6" "a7 a8 a9 a6";
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .skills {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .header-content__title {
+    margin: 0 0 43px;
+  }
+  .skills__container {
+    gap: 10px;
+    grid-template-areas: "a1 a1 a2 " "a3 a4 a4" "a5 a5 a6" "a7 a8 a6" "a7 a9 a9";
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .skills {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  .header-content__title {
+    margin: 0 0 33px;
+  }
+  .skills__container {
+    gap: 10px;
+    grid-template-areas: "a1 a2 " "a3 a2" "a4 a4" "a5 a6" "a5 a7" "a8 a9";
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills {
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 575px) {
+  .skills__container {
+    gap: 20px;
+    grid-template-areas: "a1" "a2" "a3" "a4" "a5" "a6" "a7" "a8" "a9";
+    grid-template-columns: 1fr;
+  }
+  .skills {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 576) {
+  .skills {
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+}
+
+
+@media (min-height: 691px) {
+  .skills__container {
+    grid-auto-rows: calc(33.3333vh - 13.3333px);
+  }
+}
+@media (max-height: 690px) {
+  .skills__container {
+    grid-auto-rows: calc(230px - 13.3333px);
+  }
+}

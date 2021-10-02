@@ -1,0 +1,26 @@
+.about {
+    letter-spacing: 0.055em;
+    background-color: $color-gray-light;
+    @extend %section;
+    &__container {
+        display: grid;
+    
+        @extend %container;
+        @include lg-min {
+          gap: $gap-x5;
+          grid-template-columns: 1fr 271px;
+        }
+        @include lg-md {
+          gap: $gap-x2;
+          grid-template-columns: 1fr 271px;
+        }
+        @include md-sm {
+          gap: $gap;
+          grid-template-columns: 1fr 236px;
+        }
+        @include sm {
+          gap: $gap;
+          grid-template-columns: 1fr;
+        }
+      }
+}

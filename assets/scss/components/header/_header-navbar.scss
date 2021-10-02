@@ -1,0 +1,134 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.header-navbar {
+  display: grid;
+  align-items: center;
+
+  letter-spacing: 0.1em;
+
+  justify-items: end;
+
+  &__list {
+    @include md-min {
+      display: grid;
+      justify-content: flex-end;
+
+      width: 100%;
+
+      grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+      @include unlist(0 (-$gap-sm) 0 0);
+    }
+    @include md {
+      position: absolute;
+      top: 100%;
+      right: $gap;
+
+      display: none;
+
+      text-align: right;
+
+      background-color: rgba($color-gray-dark, 0.9);
+
+      @include box-shadow;
+      @include unlist;
+    }
+  }
+
+  &__item {
+    @include md-min {
+      margin-left: $gap;
+    }
+    @include md {
+      margin: $gap $gap-sm;
+    }
+  }
+
+  &__link {
+    display: block;
+
+    transition: color 0.5s;
+
+    font-size: 1.125rem;
+
+    @include md-min {
+      padding: $gap $gap-sm;
+    }
+    @include md {
+      padding: $gap-sm $gap;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-accent;
+    }
+  }
+
+  &__btn {
+    position: relative;
+
+    width: 30px;
+    height: 23px;
+    margin: $gap 0;
+
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    transform: rotate(0deg);
+
+    @include md-min {
+      display: none;
+    }
+    @include md {
+      display: block;
+    }
+
+    &-row {
+      position: absolute;
+      left: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 3px;
+
+      transition: 0.25s ease-in-out;
+      transform: rotate(0deg);
+
+      opacity: 1;
+      border-radius: 3px;
+      background: $color-light;
+
+      &:nth-of-type(1) {
+        top: 0;
+      }
+
+      &:nth-of-type(2) {
+        top: 9px;
+      }
+
+      &:nth-of-type(3) {
+        top: 18px;
+      }
+    }
+
+    &--active span {
+      &:nth-of-type(1) {
+        top: 9px;
+
+        transform: rotate(135deg);
+      }
+
+      &:nth-of-type(2) {
+        left: -30px;
+
+        opacity: 0;
+      }
+
+      &:nth-of-type(3) {
+        top: 9px;
+
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}
